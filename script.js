@@ -1,9 +1,10 @@
 const notes = [
   'Sign in with the username and password assigned to you. Your home page may look slightly different.',
   'Navigate to Tools > AI Agent Studio.',
-  'In this lab, you will build an AI agent that creates new purchase orders.\n\nThe agent uses Business Object tools to securely search Fusion data en create/update Fusion data.',
-  'The required tool already exists. Navigate to Resources > Tools.',
-  'Search for the [RS001 Create Purchase Order], [RS001 Get Purchase Order] and [RS001 Get Supplier] tool.', 
+  'In this lab, you will build an AI agent that creates new suppliers.\n\nThe agent uses Business Object tools to securely search Fusion data en create/update Fusion data.',
+  'The required business objects and tools already exists. Navigate to Resources > Business Object.',
+  'Search for the [RVS_SUPPLIERS] or [RVS_LOCATION] Business Obkect.\n\Do not change these objects, you can use them for review but you need to create your own Business Object', 
+  'Go back to Business Objects > Click on Add > Fill in the details:'
   'Open the tool by clicking its Edit icon. It can search suppliers by name, search purchase order by order number and create new purchase orders.\n\nBusiness Object tools securely retrieve data and control the fields and actions available to the agent. Creating these tools usually requires a more technical role.\n\nClick Home.',
   'Now create the agent. Navigate to Resources > Agents.',
   'Click Add.',
@@ -120,7 +121,7 @@ If no purchase orders are found:
 * Be concise and professional.`;
 
 const copyText = {
-  9: 'Agent Name: [Your initials][number] Purchase Order Handler Agent\nFamily: Common\nModule: Other\nDescription: An agent that can query on supplier and purchase order data. And can new create purchase orders.',
+  6: 'Business Object Name: [Your initials][number] Supplier Object\nFamily: Common\nModule: Other\nDescription: A business object that searches for supplier data and creates new suppliers\nResource Type: Monolith resource\nResource Path: /fscmRestApi/resources/11.13.18.05/suppliers',
   14: purchaseOrderPrompt,
   15: 'Return the response in HTML, add light colours since the background is dark and add html tag icons to the response text.',
   21: 'Create a workflow agent based on the just created agent YOUR_AGENT_CODE. The workflow should pass the user input to the agent. It is a reusable agent, allowing the creation of purchase orders. Enable the file upload option in the settings menu of the workflow agent, setup is in chat experience.',
