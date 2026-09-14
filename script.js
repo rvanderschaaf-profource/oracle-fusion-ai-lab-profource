@@ -4,7 +4,7 @@ const notes = [
   'In this lab, you will build an AI agent that creates new suppliers.\n\nThe agent uses Business Object tools to securely search Fusion data en create/update Fusion data.',
   'The required business objects and tools already exists. Navigate to Resources > Business Object.',
   'Search for the [RVS_SUPPLIERS] or [RVS_LOCATION] Business Obkect.\n\Do not change these objects, you can use them for review but you need to create your own Business Object', 
-  'Go back to Business Objects > Click on Add > Fill in the details:'
+  'Go back to Business Objects > Click on Add > Fill in the details:',
   'Open the tool by clicking its Edit icon. It can search suppliers by name, search purchase order by order number and create new purchase orders.\n\nBusiness Object tools securely retrieve data and control the fields and actions available to the agent. Creating these tools usually requires a more technical role.\n\nClick Home.',
   'Now create the agent. Navigate to Resources > Agents.',
   'Click Add.',
