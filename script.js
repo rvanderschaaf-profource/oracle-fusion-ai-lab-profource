@@ -3,12 +3,12 @@ const notes = [
   'Navigate to Tools > AI Agent Studio.',
   'In this lab, you will build an AI agent that creates new suppliers.\n\nThe agent uses Business Object tools to securely search Fusion data en create/update Fusion data.',
   'The required business objects and tools already exists. Navigate to Resources > Business Object.',
-  'Search for the [RVS_SUPPLIERS] or [RVS_LOCATION] Business Obkect.\n\Do not change these objects, you can use them for review (by clicking on them) but you need to create your own Business Object', 
+  'Search for the [RVS_SUPPLIERS] or [RVS_LOCATION] Business Object.\n\nDo not change these objects, you can use them for review (by clicking on them) but you need to create your own Business Object,', 
   'Go back to Business Objects > Click on Add > Fill in the details:',
   'Click on Add from Specification > Select \'/suppliers\' > getall_suppliers:',
-  'Now create another function to create the supplier based on the previous step.\nWe will  provide you a sample payload which you need for the configuration, but feel free to use your own payload and to add additional fields:',
-  'Click Add.',
-  'Enter the following agent details.',
+  'Create another function that is able to create the supplier.\nThe steps are similair to the previous step.\nWe will  provide you a sample payload which you need for the configuration, but feel free to use your own payload to add additional fields like the address details for example:',
+  'Navigate to Resources > Tools > Add > Fill in the following details:',
+  '',
   'Add the tool. Search for [RS001 Create Purchase Order], [RS001 Get Purchase Order], [RS001 Get Supplier] and [MultiFileProcessor].\n\nThe MultiFileProcessor tool is needed for the agent to be able to understand document uploads.',
   'Hover over the tool and click Add to Agent.',
   'The tool is now part of the agent. Select the agent to add the prompt and other settings.',
@@ -27,7 +27,7 @@ const notes = [
 ];
 
 const titles = [
-  'Sign in', 'Open AI Agent Studio', 'Lab overview', 'Review available business objects', 'Find the relevant business objects and review', 'Create new business object', 'Create new function within business object', 'Start a new agent', 'Enter agent details', 'Find the relevant tool', 'Add the tool to the agent', 'Configure the agent', 'Open Prompts', 'Add the agent prompt', 'Add the summarization prompt', 'Save the agent', 'Prepare the workflow', 'Switch to Workflows', 'Select Workflows', 'Ready to create the workflow', 'Request workflow generation', 'Approve workflow creation', 'Debug the agent','End of Lab'
+  'Sign in', 'Open AI Agent Studio', 'Lab overview', 'Review available business objects', 'Find the relevant business objects', 'Create new business object', 'Create new function within business object (1/2)', 'Create new function within business object (2/2)', 'Create new tool', 'Find the relevant tool', 'Add the tool to the agent', 'Configure the agent', 'Open Prompts', 'Add the agent prompt', 'Add the summarization prompt', 'Save the agent', 'Prepare the workflow', 'Switch to Workflows', 'Select Workflows', 'Ready to create the workflow', 'Request workflow generation', 'Approve workflow creation', 'Debug the agent','End of Lab'
 ];
 
 const purchaseOrderPrompt = `## Role
@@ -122,8 +122,9 @@ If no purchase orders are found:
 
 const copyText = {
   6: 'Business Object Name: [Your initials][number] Supplier Object\nFamily: Common\nModule: Other\nDescription: A business object that searches for supplier data and creates new suppliers\nResource Type: Monolith resource\nResource Path: /fscmRestApi/resources/11.13.18.05/suppliers',
-  7: 'Function Name: [Your initials][number] get supplier\nDescription: A function to retrieve supplier data.\nOperation Type: Get\nUse Native Authentication: Yes\nResource Path: ?q=Supplier LIKE \'%{supplierName}%\' or LIKE \'{supplierName}%\' or LIKE \'%{supplierName}\'\nMake sure to fill in the rest of the required fields, you can use AI (generate) to fill these records.',
+  7: 'Function Name: [Your initials][number]_get_supplier\nDescription: A function to retrieve supplier data.\nOperation Type: Get\nUse Native Authentication: Yes\nResource Path: ?q=Supplier LIKE \'%{supplierName}%\' or LIKE \'{supplierName}%\' or LIKE \'%{supplierName}\'\n\n\nMake sure to fill in the rest of the required fields, you can use AI (generate) to fill these records.',
   8:'{\n\"Supplier\" : \"{supplierName}\",\n\"TaxOrganizationType\" : \"Corporation\",\n\"SupplierType\" : \"Services\",\n\"BusinessRelationship\" : \"Prospective\"\n}',
+  9:'Tool Type: Business Object\nTool Name: [Your initials][number]_Suppliers\nFamily: Common\nModule: Other\nDescription: A tool to retrieve and create supplier data.\nRequire Human Approval: Off\nBusiness Object: [YOUR_BO_CODE]',
   14: purchaseOrderPrompt,
   15: 'Return the response in HTML, add light colours since the background is dark and add html tag icons to the response text.',
   21: 'Create a workflow agent based on the just created agent YOUR_AGENT_CODE. The workflow should pass the user input to the agent. It is a reusable agent, allowing the creation of purchase orders. Enable the file upload option in the settings menu of the workflow agent, setup is in chat experience.',
