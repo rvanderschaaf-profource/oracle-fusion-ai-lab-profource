@@ -3,15 +3,15 @@ const notes = [
   'Navigate to Tools > AI Agent Studio.',
   'In this lab, you will build an AI agent that creates new suppliers.\n\nThe agent uses Business Object tools to securely search Fusion data en create/update Fusion data.',
   'The required business objects and tools already exists. Navigate to Resources > Business Object.',
-  'Search for the [RVS_SUPPLIERS] or [RVS_LOCATION] Business Object.\n\nDo not change these objects, you can use them for review (by clicking on them) but you need to create your own Business Object,', 
+  'Search for the [RVS_SUPPLIERS] Business Object.\n\nDo not change the object, you can use them for review (by clicking on them) but you need to create your own Object.', 
   'Go back to Business Objects > Click on Add > Fill in the details:',
   'Click on Add from Specification > Select \'/suppliers\' > getall_suppliers:',
-  'Create another function that is able to create the supplier.\nThe steps are similair to the previous step.\nWe will  provide you a sample payload which you need for the configuration, but feel free to use your own payload to add additional fields like the address details for example:',
+  'Create another function that is able to create the supplier.\nThe steps are similair to the previous step.\n\nWe will  provide you a sample payload which you need for the configuration, but feel free to use your own payload to add additional fields like the address details for example:',
   'Navigate to Resources > Tools > Add > Fill in the following details:',
   'Now create the agent. Navigate to Resources > Agents.',
   'Click Add.',
   'Enter the following agent details.',
-  'Add the tool.Search for [YOUR_TOOL_CODE] and [MultiFileProcessor].\n\nThe MultiFileProcessor tool is a seeded tool and needed for the agent to be able to understand document uploads.',
+  'Add the tool. Search for [YOUR_TOOL_CODE] and [MultiFileProcessor].\n\nThe MultiFileProcessor tool is a seeded tool and needed for the agent to be able to understand document uploads.',
   'Hover over the tool and click Add to Agent.',
   'The tool is now part of the agent. Select the agent to add the prompt and other settings.',
   'Select Prompts.',
@@ -21,7 +21,6 @@ const notes = [
   'The agent is ready. Next, create a workflow to test it. Copy your agent code, then select AI Agent Studio.',
   'Use Ask Oracle to generate the workflow. First switch the scope from Applications to Workflows: remove Applications by clicking its x.',
   'Select Workflows.',
-  '',
   'Enter the following in Ask Oracle.\n\nThe screenshot uses .. as an example. In the text you copy below, replace YOUR_AGENT_CODE with the code of the agent you created.\n\nThe file-upload function can also be manually added by going to the settings > chat experience > enable file upload.',
   'Click Yes for each approval request until the workflow is created.',
   'Click Debug, enter the following question and upload one of the sample attachments to create a new supplier.',
@@ -44,7 +43,7 @@ The deeplink must be rendered as an HTML anchor element with target="_blank" so 
 
 const copyText = {
   6: 'Business Object Name: [Your initials][number] Supplier Object\nFamily: Common\nModule: Other\nDescription: A business object that searches for supplier data and creates new suppliers\nResource Type: Monolith resource\nResource Path: /fscmRestApi/resources/11.13.18.05/suppliers',
-  7: 'Function Name: [Your initials][number]_get_supplier\nDescription: A function to retrieve supplier data.\nOperation Type: Get\nUse Native Authentication: Yes\nResource Path: ?q=Supplier LIKE \'%{supplierName}%\' or LIKE \'{supplierName}%\' or LIKE \'%{supplierName}\'\n\n\nMake sure to fill in the rest of the required fields, you can use AI (generate) to fill these records.',
+  7: 'Function Name: [Your initials][number]_get_supplier\nDescription: A function to retrieve supplier data.\nOperation Type: Get\nUse Native Authentication: Yes\nResource Path: ?q=Supplier LIKE \'%{supplierName}%\' or LIKE \'{supplierName}%\' or LIKE \'%{supplierName}\'\nHeader: REST-Framework-Version=1\n\n\nMake sure to fill in the rest of the required fields, you can use AI (generate) to fill these records.',
   8:'{\n\"Supplier\" : \"{supplierName}\",\n\"TaxOrganizationType\" : \"Corporation\",\n\"SupplierType\" : \"Services\",\n\"BusinessRelationship\" : \"Prospective\"\n}',
   9:'Tool Type: Business Object\nTool Name: [Your initials][number]_Suppliers\nFamily: Common\nModule: Other\nDescription: A tool to retrieve and create supplier data.\nRequire Human Approval: Off\nBusiness Object: [YOUR_BO_CODE]',
   12:'Agent Name: [Your initials][number] Supplier Handler Agent\nFamily: Common\nModule: Other\nDescription: An agent that can query on supplier data and can create new suppliers.',
@@ -139,7 +138,7 @@ for (let slide = 1; slide <= titles.length; slide += 1) {
     `
     : '';
 
- const resource = slide === 23
+ const resource = slide === 26
   ? `
     <div class="document-link">
       <p><strong>Download a sample supplier creation request:</strong></p>
