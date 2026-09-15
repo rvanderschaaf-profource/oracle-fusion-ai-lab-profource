@@ -16,7 +16,7 @@ const notes = [
   'The tool is now part of the agent. Select the agent to add the prompt and other settings.',
   'Select Prompts.',
   'This prompt includes the required tool calls, selection logic, and guardrails. Paste it into the Prompt field.',
-  'Go to LLM > Make sure to select the basic [OSS} LLM./n/nGo back to Prompts > Set Summarization mode to Custom. Add the following text below the [answer requirements] section.',
+  'Go to LLM > Make sure to select the basic [OSS} LLM.\n\nGo back to Prompts > Set Summarization mode to Custom. Add the following text below the [answer requirements] section.',
   'Click Create & Close.',
   'The agent is ready. Next, create a workflow to test it. Copy your agent code, then select AI Agent Studio.',
   'Use Ask Oracle to generate the workflow. First switch the scope from Applications to Workflows: remove Applications by clicking its x.',
