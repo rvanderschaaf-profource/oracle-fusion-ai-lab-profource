@@ -6,7 +6,7 @@ const notes = [
   'Search for the [RVS_SUPPLIERS] Business Object.\n\nDo not change the object, you can use them for review (by clicking on the pencil) but you need to create your own Object.', 
   'Go back to Business Objects > Click on Add > Fill in the details:',
   'Click on Add from Specification > Select \'/suppliers\' > getall_suppliers:',
-  'Create another function that is able to create the supplier.\n\nhttps://docs.oracle.com/en/cloud/saas/procurement/26c/fapra/op-suppliers-post.html\n\nThe steps are similair to the previous step.\n\nWe will  provide you a sample payload which you need for the configuration, but feel free to use your own payload to add additional fields like the address details for example:',
+  'Create another function that is able to create the supplier.\n\n<a href="https://docs.oracle.com/en/cloud/saas/procurement/26c/fapra/op-suppliers-post.html" target="_blank">Oracle Supplier POST API Documentation</a>\n\nThe steps are similair to the previous step.\n\nWe will  provide you a sample payload which you need for the configuration, but feel free to use your own payload to add additional fields like the address details for example:',
   'Navigate to Resources > Tools > Add > Fill in the following details:',
   'Now create the agent. Navigate to Resources > Agents.',
   'Click Add.',
