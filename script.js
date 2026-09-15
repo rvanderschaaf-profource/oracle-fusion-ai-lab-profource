@@ -16,28 +16,28 @@ const notes = [
   'The tool is now part of the agent. Select the agent to add the prompt and other settings.',
   'Select Prompts.',
   'This prompt includes the required tool calls, selection logic, and guardrails. Paste it into the Prompt field.',
-  'Set Summarization mode to Custom. Add the following text below the [answer requirements] section.\n\nMake sure to select the basic [OSS} LLM.',
-  'Click Save and Close.',
+  'Go to LLM > Make sure to select the basic [OSS} LLM./n/nGo back to Prompts > Set Summarization mode to Custom. Add the following text below the [answer requirements] section.',
+  'Click Create & Close.',
   'The agent is ready. Next, create a workflow to test it. Copy your agent code, then select AI Agent Studio.',
   'Use Ask Oracle to generate the workflow. First switch the scope from Applications to Workflows: remove Applications by clicking its x.',
   'Select Workflows.',
-  'Enter the following in Ask Oracle.\n\nThe screenshot uses .. as an example. In the text you copy below, replace YOUR_AGENT_CODE with the code of the agent you created.\n\nThe file-upload function can also be manually added by going to the settings > chat experience > enable file upload.',
+  'Enter the following in Ask Oracle.\n\nThe screenshot uses [RS001_SUPPLIER_HANDLER_AGENT] as an example. In the text you copy below, replace YOUR_AGENT_CODE with the code of the agent you created.\n\nThe file-upload can be manually enabled by going to the settings > chat experience > enable file upload.',
   'Click Yes for each approval request until the workflow is created.',
   'Click Debug, enter the following question and upload one of the sample attachments to create a new supplier.',
   '',
 ];
 
 const titles = [
-  'Sign in', 'Open AI Agent Studio', 'Lab overview', 'Review available business objects', 'Find the relevant business objects', 'Create new business object', 'Create new function within business object (1/2)', 'Create new function within business object (2/2)', 'Create new tool', 'Open Agents', 'Start a new agent', 'Enter agent details', 'Find the relevant tool', 'Add the tool to the agent', 'Configure the agent', 'Open Prompts', 'Add the agent prompt', 'Add the summarization prompt', 'Save the agent', 'Prepare the workflow', 'Switch to Workflows', 'Select Workflows', 'Ready to create the workflow','Request workflow generation','Approve workflow creation','Debug the agent','End of Lab'
+  'Sign in', 'Open AI Agent Studio', 'Lab overview', 'Review available business objects', 'Find the relevant business objects', 'Create new business object', 'Create new function within business object (1/2)', 'Create new function within business object (2/2)', 'Create new tool', 'Open Agents', 'Start a new agent', 'Enter agent details', 'Find the relevant tool', 'Add the tool to the agent', 'Configure the agent', 'Open Prompts', 'Add the agent prompt', 'Add the summarization prompt', 'Save the agent', 'Prepare the workflow', 'Switch to Workflows', 'Select Workflows', 'Request workflow generation','Approve workflow creation','Debug the agent','End of Lab'
 ];
 
-const supplierPrompt = `Analyze {{$context.$system.$inputMessage}} and identify the supplier name. Store the result in: \`supplierName\`. In case of a delivered attachment, use the tool \`MultiFileProcessor\` to read and understand the attachment.
+const supplierPrompt = `Analyze {{$context.$system.$inputMessage}} and identify the supplier name. Store the result in: [supplierName]. In case of a delivered attachment, use the tool [MultiFileProcessor] to read and understand the attachment.
 
-Use \`supplierName\` to check if the supplier already exists. You can use the function \`YOUR_FUNCTION_CODE\` from the tool \`YOUR_TOOL_CODE\` for this.
+Use [supplierName] to check if the supplier already exists. You can use the function [YOUR_FUNCTION_CODE] from the tool [YOUR_TOOL_CODE] for this.
 
-If supplier already exists, then stop the agent and do not use any tools. Return with a deeplink to the supplier: Make a clickable deeplink to the supplier page. Link to use: https://fa-esdr-dev3-saasfademo1.ds-fa.oraclepdemos.com/fscmUI/redwood/suppliers/manage-profile?supplierId=\`SupplierId\` -- This last SupplierId must be filled based on the response of the [FOUR_FUNCTION_CODE] tool function.
+If supplier already exists, then stop the agent and do not use any tools. Return with a deeplink to the supplier: Make a clickable deeplink to the supplier page. Link to use: https://fa-esdr-dev3-saasfademo1.ds-fa.oraclepdemos.com/fscmUI/redwood/suppliers/manage-profile?supplierId=[SupplierId] -- This last SupplierId must be filled based on the response of the [FOUR_FUNCTION_CODE] tool function.
 
-If supplier does not exists, then use the function \`YOUR_FUNCTION_CODE\` from the tool \`YOUR_TOOL_CODE\` to create this new supplier.Return with a deeplink to the supplier: Make a clickable deeplink to the supplier page. Link to use: https://fa-esdr-dev3-saasfademo1.ds-fa.oraclepdemos.com/fscmUI/redwood/suppliers/manage-profile?supplierId='SupplierId' -- This last SupplierId must be filled based on the response of the [FOUR_FUNCTION_CODE] tool function.
+If supplier does not exists, then use the function [YOUR_FUNCTION_CODE] from the tool [YOUR_TOOL_CODE] to create this new supplier.Return with a deeplink to the supplier: Make a clickable deeplink to the supplier page. Link to use: https://fa-esdr-dev3-saasfademo1.ds-fa.oraclepdemos.com/fscmUI/redwood/suppliers/manage-profile?supplierId=[SupplierId] -- This last SupplierId must be filled based on the response of the [FOUR_FUNCTION_CODE] tool function.
 
 The deeplink must be rendered as an HTML anchor element with target="_blank" so that the browser opens the supplier page in a new tab`;
 
@@ -49,7 +49,7 @@ const copyText = {
   12:'Agent Name: [Your initials][number] Supplier Handler Agent\nFamily: Common\nModule: Other\nDescription: An agent that can query on supplier data and can create new suppliers.',
   17: supplierPrompt,
   18: 'Return the response in HTML, add light colours since the background is dark and add html tag icons to the response text.',
-  24: 'Create a workflow agent based on the just created agent YOUR_AGENT_CODE. The workflow should pass the user input to the agent. It is a reusable agent, allowing the creation of suppliers. Enable the file upload option in the settings menu of the workflow agent, setup is in chat experience.',
+  23: 'Create a workflow agent based on the just created agent YOUR_AGENT_CODE. The workflow should pass the user input to the agent. It is a reusable agent, allowing the creation of suppliers. Enable the file upload option in the settings menu of the workflow agent, setup is in chat experience.',
   25: 'Create a new supplier based on the attached file.',
 };
 
